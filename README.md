@@ -64,3 +64,43 @@ Once a branch has been successfully merged, delete it to keep the repository cle
 git branch -d <branch-name>
 git push origin --delete <branch-name>
 ```
+
+
+7. Detached HEAD
+```bash
+git checkout remotes/origin/rokon_dev_2_feature_auth
+
+```
+Git fetches the remote: It pulls the reference for the remote branch origin/rokon_dev_2_feature_auth from the remote repository.
+Detached HEAD: Since you are checking out a remote reference directly (instead of a local branch), Git enters a detached HEAD state. You are effectively "viewing" the code at that commit (5996a9f in your case), but not actively working on a branch.
+You can make changes and commit in this state, but those commits won't be attached to any branch. If you switch to another branch, those commits could be lost unless you explicitly create a new branch to keep them.
+
+
+Why Detached HEAD Happens
+This state typically occurs when:
+
+You want to inspect a specific commit or version of the code without affecting any active branch.
+You want to make experimental changes without committing them to a branch immediately. This is often useful for testing something in isolation.
+You want to make temporary changes, like bug fixes or quick adjustments, before deciding where to place them in your branch structure.
+
+
+
+8. want to return to the previous branch you were on:
+git switch -
+
+9. Undoing the Detached HEAD State
+If you don’t want to keep the changes and want to go back to your previous branch (or state), you can discard any changes made in the detached HEAD state:
+
+bash
+git switch <branch-name>  # Go back to a regular branch
+git reset --hard    
+
+
+10. Switch to the Remote Branch (rokon_dev_2_feature_auth) and Create a Local Tracking Branch
+If you want to start working on the remote branch rokon_dev_2_feature_auth locally (so you can make commits), you should check it out and create a local branch that tracks the remote branch.
+
+To switch to rokon_dev_2_feature_auth and create a local branch:
+
+bash
+Copy code
+git checkout -b rokon_dev_2_feature_auth origin/rokon_dev_2_feature_auth
