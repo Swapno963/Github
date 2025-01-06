@@ -102,5 +102,4 @@ If you want to start working on the remote branch rokon_dev_2_feature_auth local
 To switch to rokon_dev_2_feature_auth and create a local branch:
 
 bash
-Copy code
 git checkout -b rokon_dev_2_feature_auth origin/rokon_dev_2_feature_auth
